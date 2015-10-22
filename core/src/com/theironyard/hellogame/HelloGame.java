@@ -28,6 +28,17 @@ public class HelloGame extends ApplicationAdapter {
 
 	@Override
 	public void render () {
+
+		move();
+
+		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.begin();
+		batch.draw(img, x, y);
+		batch.end();
+	}
+
+	public void move(){
 		if(Gdx.input.isKeyPressed(Input.Keys.UP)){
 			yV = MAX_VELOCITY;
 			//y++;
@@ -52,16 +63,7 @@ public class HelloGame extends ApplicationAdapter {
 		//Dampening Velocity
 		xV *= 0.9;
 		yV *= 0.9;
-
-
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, x, y);
-		batch.end();
 	}
-
-
 
 
 }//End of HelloGame Class
